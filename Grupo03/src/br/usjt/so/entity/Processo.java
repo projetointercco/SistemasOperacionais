@@ -21,7 +21,7 @@ public class Processo {
 private int id;
 
 @NotNull
-@Size(min= 1, max= 15, message="O nome da fila deve estar entre 1 e 15 caracteres.")
+@Size(min= 1, max= 15, message="O nome do processo deve estar entre 1 e 15 caracteres.")
 private String nome;
 
 @NotNull

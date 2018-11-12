@@ -1,8 +1,6 @@
 package br.usjt.so.dao;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -25,14 +23,6 @@ public class ProcessoDAO {
 	public int criarProcesso(Processo processo) {
 		manager.persist(processo);
 		return processo.getId();
-	}
-
-	public void finalizarProcesso(ArrayList<Integer> listaProcesso) throws IOException {
-		for (int id : listaProcesso) {
-			Processo processo = manager.find(Processo.class, id);
-			processo.setHoraFim(new Date());
-			manager.merge(processo);
-		}
 	}
 
 	@SuppressWarnings("unchecked")

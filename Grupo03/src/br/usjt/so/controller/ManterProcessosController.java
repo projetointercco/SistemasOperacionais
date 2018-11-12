@@ -103,9 +103,7 @@ public class ManterProcessosController {
 			if (quantoSobra >= 0 && quantoSobra <= escalonador.getTamanho()) {
 				escalonador.setTamanho(quantoSobra);
 				escalonador.setUltimaParticao(particao.getId());
-				// particao.setTamanho(tamanhoProcesso);
-				// particao.setDisponibilidade((byte) 0);
-				// particao.setProcesso(processo);
+
 			}
 		}
 

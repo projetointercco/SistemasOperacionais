@@ -1,7 +1,6 @@
 package br.usjt.so.service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,10 +26,6 @@ public class ProcessoService {
 	
 	public List<Processo> listarTodosProcessos() throws IOException{
 		return dao.listarTodosProcessos();
-	}
-	
-	public void finalizarProcesso(ArrayList<Integer> listaProcesso) throws IOException{
-		dao.finalizarProcesso(listaProcesso);
 	}
 	
 	public List<Processo> listarProcessosExecutando() throws IOException{
