@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- atualiza a página a cada 2 segundos -->
-<meta http-equiv="refresh" content="2">
+<meta name="refresco" http-equiv="refresh" content="2">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sistemas Operacionais | Escalonador e Memoria</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -127,13 +127,14 @@
 				processos para serem exibidos.</div>
 		</c:if>
 	</div>
-	
-	
-	
+
+
+
 	<!--  Particoes na memoria -->
 	<div id="main" class="container">
 		<h3 class="page-header">
-			Parti&ccedil;&otilde;es <span class="badge progress-bar-info">na Mem&oacute;ria</span>
+			Parti&ccedil;&otilde;es <span class="badge progress-bar-info">na
+				Mem&oacute;ria</span>
 		</h3>
 		<c:if test="${not empty particoes}">
 			<div class="table-responsive col-md-12">

@@ -267,7 +267,8 @@ public class ManterProcessosController {
 					// alocar memória na partição
 					alocarProcesso(processo);
 
-					return "NumeroProcesso";
+					//return "NumeroProcesso";
+					return "redirect:index";
 				} else {
 					model.addAttribute("prioridades", listarTodasPrioridades());
 					model.addAttribute("memoriaIndisponivel", 0);
