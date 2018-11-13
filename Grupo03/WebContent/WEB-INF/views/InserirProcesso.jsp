@@ -24,19 +24,23 @@
 		<br />
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-2">
-					<button type="button" class="btn btn-lg btn-success">
+				<div class="col-md-3">
+					<!-- <button type="button" class="btn btn-lg btn-success"> -->
+					<h4>
 						Mem&oacute;ria Total: <span class="badge badge-light">${memoriaTotal }</span>
-					</button>
+					</h4>
+					<!--  </button> -->
 				</div>
-				<div class="col-sm-2">
-					<button type="button" class="btn btn-lg btn-warning">
+				<div class="col-md-3">
+					<!--  <button type="button" class="btn btn-lg btn-warning"> -->
+					<h4>
 						Mem&oacute;ria Dispon&iacute;vel: <span class="badge badge-light">${memoriaDisponivel }</span>
-					</button>
+					</h4>
+					<!-- </button> -->
 				</div>
 			</div>
 		</div>
-		
+
 		<h3 class="page-header">
 			Adicionar Processo <span class="badge progress-bar-info">Novo</span>
 		</h3>

@@ -10,8 +10,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!-- atualiza a página a cada 2 segundos -->
-<meta name="refresco" http-equiv="refresh" content="2">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Sistemas Operacionais | Escalonador e Memoria</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -45,8 +43,8 @@
 				</div>
 				<div class="col-lg-6 offset-col-md-3">
 					<div class="btn-group" role="group">
-						<a href="index_estatico" class="btn btn-lg btn-warning">Pausar</a>
-						<a href="index" class="btn btn-lg btn-success disabled">Retomar</a>
+						<a href="index_estatico" class="btn btn-lg btn-warning disabled">Pausar</a>
+						<a href="index" class="btn btn-lg btn-success">Retomar</a>
 					</div>
 				</div>
 			</div>

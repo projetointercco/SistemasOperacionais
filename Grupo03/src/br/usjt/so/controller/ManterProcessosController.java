@@ -214,6 +214,66 @@ public class ManterProcessosController {
 			return "";
 		}
 	}
+	
+	@RequestMapping("/index_estatico")
+	public String inicioEstatico(Model model) {
+
+		try {
+
+			List<Processo> processos = new ArrayList<Processo>();
+
+			if (listarProcessosExecutando().size() == 0) {
+				processos = ps.listarProximoProcesso();
+				for (Processo p : processos) {
+					Date date = new Date();
+					date.setTime(date.getTime() - 1000);
+					p.setHoraInicio(date);
+				}
+			} else {
+				processos = listarProcessosExecutando();
+			}
+
+			for (Processo processo : processos) {
+				Date dataDeAgora = new Date();
+				Date dataProcesso = processo.getHoraInicio();
+				int segundos = (int) ((dataDeAgora.getTime() - dataProcesso.getTime()) / 1000);
+				if (segundos > 0 && segundos < processo.getDuracao()) {
+					Estado estado2 = es.carregar(3);
+					processo.setEstado(estado2);
+					processo.setDuracaoAtual(segundos);
+					// atualizaUltimaMemoria(processo.getDuracaoAtual());
+				} else {
+					// altera o estado do processo para finalizado e coloca a
+					// data de fim, atualiza a memória disponivel e atualiza o
+					// inicio do próximo processo
+					Estado estado = es.carregar(6);
+					processo.setEstado(estado);
+					processo.setHoraFim(new Date());
+					atualizaUltimaMemoria(processo.getDuracao());
+					Memoria memoria = ms.carregar(1);
+					memoria.setMemoriaUltima(0);
+					ms.atualizaMemoria(memoria);
+					desalocarProcesso(processo);
+
+					List<Processo> proximoProcesso = ps.listarProximoProcesso();
+					for (Processo proc : proximoProcesso) {
+						proc.setHoraInicio(new Date());
+					}
+				}
+			}
+
+			model.addAttribute("processosExecutando", processos);
+			model.addAttribute("processos", ps.listarProcessosPorPrioridade());
+			model.addAttribute("memoriaTotal", carregaMemoriaTotal());
+			model.addAttribute("memoriaDisponivel", carregaMemoriaAtual());
+			model.addAttribute("particoes", listarTodasParticoesPelaOrdem());
+
+			return "indexEstatico";
+		} catch (IOException e) {
+			e.printStackTrace();
+			return "";
+		}
+	}
 
 	@RequestMapping("/inserir_processo")
 	public String inserirProcesso(Model model) {
